@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="website">
+      <h1>
+        {{ title }}
+      </h1>
+      <p>
+        {{ greeting }}
+      </p>
+      <input type="text" ref="myName">
+      <input type="text" ref="myAge">
+      <button v-on:click="collectData()" >collect</button>
+      <p>my name is {{ myName }} and i am {{ myAge }} yo</p>
+      <firstco></firstco>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        Vue.component('firstco',{
+          template: `<div>
+              <h1> First components {{name}} </h1>
+                        <button v-on:click="changeName()">change name</button>
+          </div>`,
+          data: function(){
+            return {
+                name:'hello header'
+            }
+          },
+          methods:{
+              changeName: function(){
+                  this.name = 'new name';
+              }
+          }
+      });
+
+      var one = new Vue({
+        el: "#website",
+        data: {
+          title: "one Vue started here",
+          myName: 'my name',
+          myAge: 'my age',
+        },
+        methods: {
+            collectData: function(){
+                this.myName = this.$refs.myName.value;
+                this.myAge = this.$refs.myAge.value;
+            }
+        },
+        computed: {
+          greeting: function() {
+            return "Here we go function";
+          }
+        }
+      });
+    //   Components can use in mutliple instance
+      
+    </script>
+  </body>
+</html>

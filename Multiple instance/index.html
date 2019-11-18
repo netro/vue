@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="website-one">
+        <h1>
+            {{title}}
+        </h1>
+        <p>
+            {{greeting}}
+        </p>
+    </div>
+
+    <div id="website-two">
+        <h1>
+            {{title}}
+        </h1>
+        <p>
+            {{greeting}}
+        </p>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        var one = new Vue({
+            el:'#website-one',
+            data:{
+                title:'one Vue started here'
+            },
+            methods:{
+
+            },
+            computed:{
+                greeting: function (){
+                    return 'Here we go function';
+                }
+            }
+        });
+
+        var two = new Vue({
+            el:'#website-two',
+            data:{
+                title:'two Vue started here'
+            },
+            methods:{
+
+            },
+            computed:{
+                greeting: function (){
+                    return 'Here we go function';
+                }
+            }
+        });
+
+        //changed from out side
+
+        two.title = 'changed from the out side';
+
+    </script>
+</body>
+</html>
